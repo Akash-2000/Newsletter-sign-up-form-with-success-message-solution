@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color:  hsl(235, 18%, 26%);
+  
+}
+
+.main-div{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color:  hsl(235, 18%, 26%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent-div{
+    display: flex;
+
+    width: 55%;
+    height: 65%;
+border-radius: 20px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.child1{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.child2{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sign-up-illustration{
+    background-image: url("./assets/images/illustration-sign-up-desktop.svg");
+    width: 100%;
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.signup-form-grid{
+    display: grid;
+   grid-template-columns: 0.9fr;
+  
+   grid-gap: 10px;
+   justify-content: center;
+   align-content: center;
+}
+
+.feature-grid{
+    display: grid;
+    grid-template-columns: 0.01fr 1fr;
+
+    gap: 7px;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+  }
+
+  .errorEmail {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid red !important;
+    color: red;
+    background-color: rgb(242, 178, 178);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .error{
+    display: none;
+  }
+
+.active{
+    display: block;
+    color:red;  
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; 
+    font-size: 11px;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color:hsl(234, 29%, 20%);
+    color: white;
+    padding: 14px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; 
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  
+
+  input[type=submit]:hover {
+    width: 100%;
+    background-image: linear-gradient(to right,#FF3E83, hsl(4, 100%, 67%));
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; 
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Main title */
+  .title{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+  }
+  /* Normal text*/
+
+  .text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; 
+  }
+
+  .item4{
+    grid-row:4/span 13 ;
+    align-content: center;
+    display: grid;
+
+  }
+  .item4input{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .parent-div{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        background-color: hsl(0, 0%, 100%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .child2{
+        width: 100%;
+        height: 100%;
+        display: contents;
+    }
+
+    .child1{
+        width: 100%;
+    }
+
+    .sign-up-illustration{
+        background-image: url("./assets/images/illustration-sign-up-mobile.svg");
+        width: 100%;
+        height: 95%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    
+    }
+
+    .signup-form-grid{
+        display: grid;
+       grid-template-columns: 0.9fr;
+      
+       grid-row-gap: 16px;
+       justify-content: center;
+       align-content: center;
+    }
+
+    .feature-grid{
+        display: grid;
+        grid-template-columns: 0.01fr 1fr;
+        gap: 10px;
+    }
+  }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+
+  <div class="main-div">
+    <div class="parent-div">
+      <div class="child1">
+        <div class="signup-form-grid">
+          <div class="item1">
+              <h2 class="title">Stay updated!</h2>
+          </div>
+          <div class="item2">
+            <p class="text">Join 60,000+ product managers receiving monthly</p>
+            <p class="text">updates on:</p>
+          </div>
+          <div class="item3">
+            <div class="feature-grid">
+              <div class="feature-grid1">
+                <img src="./assets/images/icon-list.svg" alt="list-icon">
+              </div>
+              <div class="feature-grid2">
+                <p class="text">Product discovery and building what matters</p>
+              </div>
+              <div class="feature-grid3">
+                <img src="./assets/images/icon-list.svg" alt="list-icon">
+              </div>
+              <div class="feature-grid4">
+                <p class="text"> Measuring to ensure updates are a success</p>
+              </div>
+              <div class="feature-grid5">
+                <img src="./assets/images/icon-list.svg" alt="list-icon">
+              </div>
+              <div class="feature-grid6">
+                <p class="text">And much more!</p>
+              </div>
+            </div>
+          </div>
+          <div class="item4">
+            <div class="item4input">
+              <p class="title" style="font-size: 12px;"> Email address</p>
+              <p  id="errortitle" class="error"></p>
+            </div>
+            <form novalidate>
+            <input type="email" id="mail" name="firstname" placeholder="email@company.com" required>
+            <input id="submitButton" type="submit" value="Subscribe to monthly newsletter" >
+          </form>
+          </div>
+          <!-- <div class="item5">
+          </div> -->
+        </div>
+      </div>
+      <div class="child2">
+        <div class="sign-up-illustration">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign-up form start -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+
+  </div>
+  <script>
+
+      const form  = document.getElementsByTagName('form')[0];
+      const email = document.getElementById('mail');
+    
+      const emailError = document.getElementById('errortitle');
+
+
+
+      email.addEventListener('input', function (event) {
+      // Each time the user types something, we check if the
+      // form fields are valid.
+
+
+      
+        // In case there is an error message visible, if the field
+        // is valid, we remove the error message.
+        emailError.innerHTML = ''; // Reset the content of the message
+        emailError.className = 'error'; // Reset the visual state of the message
+        //returns normal
+        email.className=""
+      
+    });
+
+
+    form.addEventListener('submit', function (event) {
+      // if the form contains valid data, we let it submit
+
+      console.log("submit is cliccked")
+      console.log(email.value)
+
+      if(!email.validity.valid) {
+        // If it isn't, we display an appropriate error message
+        showError();
+        // Then we prevent the form from being sent by canceling the event
+        event.preventDefault();
+      }else{
+        window.location.replace("http://127.0.0.1:5500/sucess.html")
+        sessionStorage.setItem("emailId",email.value);
+        event.preventDefault();
+      }
+      
+    });
+
+
+
+    function showError() {
+      if(email.validity.valid){
+        console.log("it is valid")
+      }
+      if(email.validity.valueMissing) {
+        // If the field is empty
+        // display the following error message.
+        emailError.textContent = 'You need to enter an e-mail address.';
+        email.className="errorEmail"
+
+        
+      } else if(email.validity.typeMismatch) {
+        // If the field doesn't contain an email address
+        // display the following error message.
+        emailError.textContent = 'Entered value needs to be an e-mail address.';
+        email.className="errorEmail"
+
+        console.log("text added")
+      } else if(email.validity.tooShort) {
+        // If the data is too short
+        // display the following error message.
+        emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
+        email.className="errorEmail"
+
+      }
+
+      // Set the styling appropriately
+      emailError.className = 'error active';
+    }
+
+  </script>
+</body>
+</html>
